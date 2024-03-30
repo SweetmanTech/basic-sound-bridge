@@ -1,7 +1,7 @@
-import { Interface } from 'ethers/lib/utils';
 import { getPublicClient } from '../clients';
 import handleTxError from '../handleTxError';
 import getViemNetwork from '../clients/getViemNetwork';
+import { encodeFunctionData } from 'viem';
 
 const getSoundMintCall = async (
   mintRecipient: `0x${string}`,
@@ -26,7 +26,7 @@ const getSoundMintCall = async (
     });
 
     const { args, functionName, address: SUPERMINTER, value, abi } = mintParams.mint.input;
-    const soundMintDataV2 = new Interface(abi).encodeFunctionData(functionName, args);
+    const soundMintDataV2 = encodeFunctionData({ abi, functionName, args });
 
     return {
       target: SUPERMINTER,
