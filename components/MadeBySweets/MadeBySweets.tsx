@@ -1,6 +1,6 @@
 const MadeBySweets = () => (
   <a
-    href="https://github.com/SweetmanTech/basic-relay-bridge"
+    href="https://github.com/SweetmanTech/sound-bridge"
     target="_blank"
     className="flex justify-center items-center gap-5"
   >

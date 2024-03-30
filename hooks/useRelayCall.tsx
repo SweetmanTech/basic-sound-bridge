@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import getSolverCapacity from '@/lib/relay/getSolverCapacity';
 import { toast } from 'react-toastify';
 import {
+  MAINNET_RELAY_API,
   TESTNET_RELAY_API,
   convertViemChainToRelayChain,
   createClient,
@@ -12,6 +13,7 @@ import {
 import getViemNetwork from '@/lib/clients/getViemNetwork';
 import { useBridgeProvider } from '@/providers/BridgeProvider';
 import relayCall from '@/lib/relay/relayCall';
+import { TESTNET } from '@/lib/consts';
 
 const useRelayCall = () => {
   const { wallet: privyWallet } = useConnectedWallet();
@@ -70,7 +72,7 @@ const useRelayCall = () => {
   useEffect(() => {
     const chains = [convertViemChainToRelayChain(activeChain)];
     createClient({
-      baseApiUrl: TESTNET_RELAY_API,
+      baseApiUrl: TESTNET ? TESTNET_RELAY_API : MAINNET_RELAY_API,
       chains,
     });
   }, [privyWallet]);
