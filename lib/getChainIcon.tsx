@@ -7,11 +7,14 @@ import {
   mainnet,
   zora,
   zoraSepolia,
+  arbitrum,
+  arbitrumNova,
 } from 'viem/chains';
 
 import ethereumIcon from '../public/icons/Ethereum.svg';
 import optimismIcon from '../public/icons/Optimism.svg';
 import baseIcon from '../public/icons/Base.svg';
+import arbitrumIcon from '../public/icons/Arbitrum.svg';
 import zoraIcon from '../public/images/zorb.png';
 
 const getChainIcon = (chainId: number) => {
@@ -28,6 +31,9 @@ const getChainIcon = (chainId: number) => {
     case zora.id:
     case zoraSepolia.id:
       return zoraIcon;
+    case arbitrum.id:
+    case arbitrumNova.id:
+      return arbitrumIcon;
     default:
       return ethereumIcon;
   }

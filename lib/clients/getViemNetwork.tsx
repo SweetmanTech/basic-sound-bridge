@@ -13,6 +13,7 @@ import {
   zora,
   linea,
   arbitrum,
+  arbitrumNova,
 } from 'viem/chains';
 
 const getViemNetwork = (chainId: number) => {
@@ -45,6 +46,8 @@ const getViemNetwork = (chainId: number) => {
       return linea;
     case arbitrum.id:
       return arbitrum;
+    case arbitrumNova.id:
+      return arbitrumNova;
     default:
       return mainnet;
   }

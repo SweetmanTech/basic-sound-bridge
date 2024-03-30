@@ -1,11 +1,12 @@
 import getSoundMintCall from '@/lib/sound/getSoundMintCall';
 import { useEffect, useState } from 'react';
 import useConnectedWallet from './useConnectedWallet';
-import { Chain, baseSepolia } from 'viem/chains';
+import { Chain, base, baseSepolia } from 'viem/chains';
+import { TESTNET } from '@/lib/consts';
 
 const useSoundCollection = () => {
   const { connectedWallet } = useConnectedWallet();
-  const [destinationChain, setDestinationChain] = useState<Chain>(baseSepolia);
+  const [destinationChain, setDestinationChain] = useState<Chain>(TESTNET ? baseSepolia : base);
   const [collectionAddress, setCollectionAddress] = useState<string>('');
   const [bridgeAmount, setBridgeAmount] = useState<bigint>(0n);
   const [mintInfo, setMintInfo] = useState<any>();
