@@ -1,7 +1,5 @@
-import { baseSepolia } from 'viem/chains';
 import usePrivyWalletClient from './usePrivyWalletClient';
-import { WalletClient, toHex } from 'viem';
-import relayBridge from '@/lib/relay/relayBridge';
+import { WalletClient } from 'viem';
 import useConnectedWallet from './useConnectedWallet';
 import { useEffect } from 'react';
 import getSolverCapacity from '@/lib/relay/getSolverCapacity';
@@ -13,7 +11,6 @@ import {
 } from '@reservoir0x/relay-sdk';
 import getViemNetwork from '@/lib/clients/getViemNetwork';
 import { useBridgeProvider } from '@/providers/BridgeProvider';
-import getSoundMintCall from '@/lib/sound/getSoundMintCall';
 import relayCall from '@/lib/relay/relayCall';
 
 const useRelayCall = () => {
