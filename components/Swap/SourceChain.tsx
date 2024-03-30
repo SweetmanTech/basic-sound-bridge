@@ -5,6 +5,7 @@ import useConnectedWallet from '@/hooks/useConnectedWallet';
 import { getPublicClient } from '@/lib/clients';
 import { Chain } from 'viem';
 import { sepolia } from 'viem/chains';
+import { SOURCE_CHAINS } from '@/lib/consts';
 
 const SourceChain = () => {
   const { wallet } = useConnectedWallet();
@@ -25,7 +26,7 @@ const SourceChain = () => {
         width={25}
         src={getChainIcon(parseInt(activeChainId, 10))}
       />
-      <ChainSelect onChange={handleSelectChange} selectedChain={chain} />
+      <ChainSelect onChange={handleSelectChange} selectedChain={chain} chains={SOURCE_CHAINS} />
     </div>
   );
 };

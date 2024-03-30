@@ -1,3 +1,4 @@
+import { TITLE } from '@/lib/consts';
 import SwapHeader from '../Swap/SwapHeader';
 
 const LandingPageHeader = () => (
@@ -10,13 +11,13 @@ const LandingPageHeader = () => (
       className="text-4xl font-bold tracking-tighter sm:text-5xl"
       tw="text-7xl font-black pt-[100px]"
     >
-      basic bridge.
+      {TITLE}.
     </p>
     <p
       className="max-w-[600px] text-md md:text-xl font-bold"
       tw="max-w-[600px] text-4xl font-bold mt-[-25]"
     >
-      instantly bridge ETH via{' '}
+      instantly collect music via{' '}
       <a
         href="https://www.relay.link/"
         target="_blank"

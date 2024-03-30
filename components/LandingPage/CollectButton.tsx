@@ -2,39 +2,40 @@
 
 import Button from '../Button';
 import PendingTxModal from '../PendingTxModal';
-import useRelayBridge from '@/hooks/useRelayBridge';
 import usePrepareWallet from '@/hooks/usePrepareWallet';
 import { useBridgeProvider } from '@/providers/BridgeProvider';
 import { useState } from 'react';
 import Spinner from '../Spinner';
+import useRelayCall from '@/hooks/useRelayCall';
 
-const BridgeButton = () => {
+const CollectButton = () => {
   const { prepare } = usePrepareWallet();
-  const { bridge } = useRelayBridge();
-  const { sourceTx } = useBridgeProvider() as any;
+  const { call } = useRelayCall();
+  const { sourceTx, bridgeAmount } = useBridgeProvider() as any;
   const [loading, setLoading] = useState<boolean>(false);
-
+  const missingPrice = bridgeAmount === 0n;
+  const disabled = loading || missingPrice;
   const handleClick = async () => {
-    if (loading) return;
+    if (disabled) return;
     if (!prepare()) return;
     setLoading(true);
-    await bridge();
+    await call();
     setLoading(false);
   };
 
   return (
     <div>
       <Button
-        disabled={loading}
+        disabled={disabled}
         onClick={handleClick}
         className="!bg-[#ff5700] flex gap-5 min-h-[50px]"
       >
         {loading && <Spinner size={30} />}
-        {loading ? 'Bridging...' : 'Bridge'}
+        {loading ? 'Collecting...' : 'Collect'}
       </Button>
       {sourceTx?.txHash && <PendingTxModal />}
     </div>
   );
 };
 
-export default BridgeButton;
+export default CollectButton;

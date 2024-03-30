@@ -1360,6 +1360,11 @@
     fflate "^0.7.3"
     string.prototype.codepointat "^0.2.1"
 
+"@soundxyz/sdk@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@soundxyz/sdk/-/sdk-7.1.0.tgz#a2a492ddc19b0ac988043c099e5b19abeb0b0d8a"
+  integrity sha512-B18CeqoMN70Xib1Uwcua7GoT1JKjPAp6QZ2IGV3hhbjUH9Cv87VHmGgpSCgw90Nm7KAnebp94SdHrocUEONnJA==
+
 "@stablelib/aead@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@stablelib/aead/-/aead-1.0.1.tgz#c4b1106df9c23d1b867eb9b276d8f42d5fc4c0c3"

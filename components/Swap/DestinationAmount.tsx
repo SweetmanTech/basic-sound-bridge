@@ -6,7 +6,7 @@ const DestinationAmount = () => {
 
   return (
     <div className="flex justify-between items-center">
-      <span className="text-sm text-gray-500">To (estimated)</span>
+      <span className="text-sm text-gray-500">Music to Collect</span>
       <span className="text-2xl font-semibold">{formatEther(bridgeAmount)} ETH</span>
     </div>
   );

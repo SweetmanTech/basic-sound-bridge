@@ -1,38 +1,24 @@
 'use client';
 
+import useSoundCollection from '@/hooks/useSoundCollection';
 import { createContext, useContext, useMemo, useState } from 'react';
-import { Chain } from 'viem';
-import { zoraSepolia } from 'viem/chains';
 
 const BridgeContext = createContext(null);
 
 const BridgeProvider = ({ children }: any) => {
-  const [bridgeAmount, setBridgeAmount] = useState<bigint>(0n);
   const [sourceTx, setSourceTx] = useState<any>({});
   const [destinationTx, setDestinationTx] = useState<any>({});
-  const [destinationChain, setDestinationChain] = useState<Chain>(zoraSepolia);
+  const soundCollection = useSoundCollection();
 
   const value = useMemo(
     () => ({
-      bridgeAmount,
-      setBridgeAmount,
       sourceTx,
       setSourceTx,
       destinationTx,
       setDestinationTx,
-      destinationChain,
-      setDestinationChain,
+      ...soundCollection,
     }),
-    [
-      bridgeAmount,
-      setBridgeAmount,
-      sourceTx,
-      setSourceTx,
-      destinationTx,
-      setDestinationTx,
-      destinationChain,
-      setDestinationChain,
-    ],
+    [sourceTx, setSourceTx, destinationTx, setDestinationTx, soundCollection],
   );
 
   return <BridgeContext.Provider value={value as any}>{children}</BridgeContext.Provider>;

@@ -1,16 +1,16 @@
 import { SelectTrigger, SelectItem, SelectContent, Select } from '@/components/Select/Select';
-import { SOURCE_CHAINS } from '@/lib/consts';
+import { DESTINATION_CHAINS } from '@/lib/consts';
 import getChainIcon from '@/lib/getChainIcon';
 import Image from 'next/image';
 import { Chain } from 'viem';
 
-const ChainSelect = ({ onChange, selectedChain }: any) => (
+const ChainSelect = ({ onChange, selectedChain, chains = DESTINATION_CHAINS }: any) => (
   <Select onValueChange={onChange}>
     <SelectTrigger id="sourceChain" className="w-[222px] text-black">
       {selectedChain?.name}
     </SelectTrigger>
     <SelectContent position="popper">
-      {SOURCE_CHAINS.map((chain: Chain) => (
+      {chains.map((chain: Chain) => (
         <SelectItem value={chain.id.toString()}>
           <div className="flex items-center gap-3">
             <div>

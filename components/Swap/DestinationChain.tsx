@@ -5,10 +5,12 @@ import getChainIcon from '@/lib/getChainIcon';
 import getViemNetwork from '@/lib/clients/getViemNetwork';
 
 const DestinationChain = () => {
-  const { destinationChain, setDestinationChain } = useBridgeProvider() as any;
+  const { destinationChain, setDestinationChain, setCollectionAddress } =
+    useBridgeProvider() as any;
 
   const handleSelectChange = async (selectedOption: string) => {
     setDestinationChain(getViemNetwork(parseInt(selectedOption, 10)));
+    setCollectionAddress('');
   };
 
   return (

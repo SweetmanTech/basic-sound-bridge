@@ -16,6 +16,7 @@
     "@privy-io/react-auth": "^1.59.7",
     "@radix-ui/react-select": "^2.0.0",
     "@reservoir0x/relay-sdk": "^0.3.3",
+    "@soundxyz/sdk": "^7.1.0",
     "@vercel/og": "^0.6.2",
     "@xmtp/frames-validator": "^0.5.2",
     "bufferutil": "^4.0.8",
