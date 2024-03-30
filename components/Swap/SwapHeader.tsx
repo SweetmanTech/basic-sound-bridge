@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '../Button';
 import usePrepareWallet from '@/hooks/usePrepareWallet';
 import { usePrivy } from '@privy-io/react-auth';
