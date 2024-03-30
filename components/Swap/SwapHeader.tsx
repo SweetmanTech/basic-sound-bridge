@@ -9,7 +9,7 @@ const SwapHeader = () => {
   return (
     <div className="flex justify-center items-center">
       <Button onClick={toggleLogin} className="flex items-center space-x-2" variant="outline">
-        <h2 className="text-2xl font-bold">{authenticated ? 'Sign In' : 'Logout'}</h2>
+        <h2 className="text-2xl font-bold">{authenticated ? 'Logout' : 'Sign In'}</h2>
       </Button>
     </div>
   );

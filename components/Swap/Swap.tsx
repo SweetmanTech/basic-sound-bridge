@@ -4,7 +4,7 @@ import SourceCard from './SourceCard';
 
 const Swap = () => {
   return (
-    <div className="max-w-md mx-auto mt-10 space-y-8">
+    <div className="max-w-md mx-auto mt-10 space-y-4">
       <SourceCard />
       <ArrowDownIcon className="text-orange-600 mx-auto" />
       <DestinationCard />

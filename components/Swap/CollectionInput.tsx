@@ -13,7 +13,7 @@ const CollectionInput = () => {
     <Input
       onChange={handleChange}
       value={collectionAddress}
-      className="text-sm font-semibold w-[100%]"
+      className="text-sm font-semibold w-full"
       placeholder="sound collection"
     />
   );
