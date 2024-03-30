@@ -1,6 +1,6 @@
 import { baseSepolia } from 'viem/chains';
 import usePrivyWalletClient from './usePrivyWalletClient';
-import { WalletClient } from 'viem';
+import { WalletClient, toHex } from 'viem';
 import relayBridge from '@/lib/relay/relayBridge';
 import useConnectedWallet from './useConnectedWallet';
 import { useEffect } from 'react';
@@ -13,15 +13,16 @@ import {
 } from '@reservoir0x/relay-sdk';
 import getViemNetwork from '@/lib/clients/getViemNetwork';
 import { useBridgeProvider } from '@/providers/BridgeProvider';
+import getSoundMintCall from '@/lib/sound/getSoundMintCall';
+import relayCall from '@/lib/relay/relayCall';
 
-const useRelayBridge = () => {
-  const { connectedWallet, wallet: privyWallet } = useConnectedWallet();
+const useRelayCall = () => {
+  const { wallet: privyWallet } = useConnectedWallet();
   const chainId = parseInt(privyWallet?.chainId?.split?.(':')[1] || '1', 10);
   const activeChain = getViemNetwork(chainId);
   const { walletClient } = usePrivyWalletClient(activeChain);
   const wallet = walletClient as WalletClient;
-  const { setSourceTx, setDestinationTx, bridgeAmount, destinationChain } =
-    useBridgeProvider() as any;
+  const { setSourceTx, setDestinationTx, mintInfo, destinationChain } = useBridgeProvider() as any;
   const toChainId = destinationChain.id;
 
   const handleProgress = (steps: any, fees: any, currentStep: any, currentStepItem: any) => {
@@ -41,7 +42,7 @@ const useRelayBridge = () => {
     }
   };
 
-  const prepareBridge = async () => {
+  const prepareCall = async () => {
     const { enabled } = await getSolverCapacity({
       originChainId: chainId,
       destinationChainId: toChainId,
@@ -55,16 +56,17 @@ const useRelayBridge = () => {
     return enabled;
   };
 
-  const bridge = async () => {
-    const isPrepared = await prepareBridge();
+  const call = async () => {
+    const isPrepared = await prepareCall();
     if (!isPrepared) return;
-    await relayBridge({
+    if (!mintInfo) return;
+    console.log('SWEETS soundCall', mintInfo);
+
+    await relayCall({
       wallet,
       chainId,
       toChainId,
-      amount: bridgeAmount.toString(),
-      currency: 'eth',
-      recipient: connectedWallet,
+      txs: [mintInfo],
       onProgress: handleProgress,
     });
   };
@@ -77,7 +79,7 @@ const useRelayBridge = () => {
     });
   }, [privyWallet]);
 
-  return { bridge };
+  return { call };
 };
 
-export default useRelayBridge;
+export default useRelayCall;

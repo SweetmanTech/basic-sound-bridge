@@ -1,3 +1,4 @@
+import { TITLE } from '@/lib/consts';
 import SwapHeader from '../Swap/SwapHeader';
 
 const LandingPageHeader = () => (
@@ -10,7 +11,7 @@ const LandingPageHeader = () => (
       className="text-4xl font-bold tracking-tighter sm:text-5xl"
       tw="text-7xl font-black pt-[100px]"
     >
-      basic bridge.
+      {TITLE}.
     </p>
     <p
       className="max-w-[600px] text-md md:text-xl font-bold"

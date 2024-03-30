@@ -1,7 +1,6 @@
 import { Card } from '../Card/Card';
 import SourceBalance from './SourceBalance';
 import SourceChain from './SourceChain';
-import SourceInput from './SourceInput';
 
 const SourceCard = () => (
   <Card className="p-6 space-y-4">
@@ -9,7 +8,6 @@ const SourceCard = () => (
       <SourceChain />
       <SourceBalance />
     </div>
-    <SourceInput />
   </Card>
 );
 
