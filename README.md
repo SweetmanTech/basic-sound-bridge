@@ -1,9 +1,11 @@
-# basic bridge
+# sound bridge
 
 collect music instantly from any chain
 
-bridge: [bridge.onchainmagic.xyz](https://bridge.onchainmagic.xyz/)
-<img width="1440" alt="Screenshot 2024-03-30 at 1 56 20 PM" src="https://github.com/SweetmanTech/basic-relay-bridge/assets/23249402/de002b81-2c85-400f-bc8e-887de0d28c82">
+collect: [sound.likeplus.plus](https://sound.likeplus.plus/)
+
+https://github.com/SweetmanTech/sound-bridge/assets/23249402/4ae67770-5725-42b7-8a1e-9f39b4fa4611
+
 
 ## Authors
 
