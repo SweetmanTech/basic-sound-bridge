@@ -17,15 +17,7 @@ const LandingPageHeader = () => (
       className="max-w-[600px] text-md md:text-xl font-bold"
       tw="max-w-[600px] text-4xl font-bold mt-[-25]"
     >
-      instantly collect music via{' '}
-      <a
-        href="https://www.relay.link/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline"
-      >
-        relay.link
-      </a>
+      instantly collect music from any chain
     </p>
     <SwapHeader />
   </div>
