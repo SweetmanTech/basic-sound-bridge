@@ -60,7 +60,6 @@ const useRelayCall = () => {
     const isPrepared = await prepareCall();
     if (!isPrepared) return;
     if (!mintInfo) return;
-    console.log('SWEETS soundCall', mintInfo);
 
     await relayCall({
       wallet,

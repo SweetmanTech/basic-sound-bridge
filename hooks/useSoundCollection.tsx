@@ -9,17 +9,14 @@ const useSoundCollection = () => {
   const [collectionAddress, setCollectionAddress] = useState<string>('');
   const [bridgeAmount, setBridgeAmount] = useState<bigint>(0n);
   const [mintInfo, setMintInfo] = useState<any>();
-  console.log('sweets mintInfo', mintInfo);
 
   useEffect(() => {
     const init = async () => {
-      console.log('sweets destinationChain.id', destinationChain.id);
       const response = (await getSoundMintCall(
         connectedWallet,
         destinationChain.id,
         collectionAddress as `0x${string}`,
       )) as any;
-      console.log('SWEETS response', response);
       if (!response) return;
       const soundCall = {
         to: response.target,
